@@ -1,0 +1,10 @@
+.num-btn {
+    margin: 5px;
+    border: none;
+    padding: 5px 10px;
+}
+
+.num-btn:hover {
+    cursor: pointer;
+    box-shadow: 10px 10px 44px -8px rgba(101, 199, 86, 1);
+}

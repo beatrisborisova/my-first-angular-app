@@ -1,0 +1,6 @@
+p {
+    border: 2px solid #ff0000;
+    padding: 20px;
+    text-transform: capitalize;
+    background-color: #faebd7;
+}

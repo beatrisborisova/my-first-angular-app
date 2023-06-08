@@ -1,0 +1,26 @@
+<h1>Home page</h1>
+
+<!-- Pipes -->
+<p>{{test | uppercase}}</p>
+<p>{{'test' | lowercase}}</p>
+<p>{{test | uppercase | lowercase}}</p>
+<p>new Date - {{currentDate}}</p>
+<p>Format fullDate - {{currentDate | date: 'fullDate'}}</p>
+<p>Format month/date/year - {{currentDate | date: 'MM/dd/yyyy'}}</p>
+<p>{{num1 | percent:'2.2-5'}} </p>
+
+<p>{{welcomeMsg | custom: 5 }}</p>
+
+<!-- <p>{{photo}}</p> -->
+
+<div>
+    <!-- <button (click)="handleAddPhoto($event)">Add</button> -->
+
+    <!-- <div *ngFor="let photo of photos">
+        <p>{{photo}}</p>
+    </div> -->
+</div>
+
+<!-- <app-header [photos]="photos" (photo)="handleAddPhoto($event)" [gosho]='test'/> -->
+<!-- <app-header [photos]="photos" (photo)="handleAddPhoto($event)" [test]='test'/> -->
+<app-header [photos]="photos" (photo)="handleAddPhoto($event)" />

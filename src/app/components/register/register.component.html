@@ -1,0 +1,73 @@
+<h1>Register page</h1>
+
+<form [formGroup]="registerFormGroup" (ngSubmit)="onRegister()">
+    <div>
+        <label for="firstName">First name</label>
+        <input type="text" id="firstName" formControlName="firstName" />
+    </div>
+    <ng-container
+        *ngIf="registerFormGroup.controls['firstName'].touched && registerFormGroup.controls['firstName'].invalid">
+
+        <div *ngIf="registerFormGroup.controls['firstName'].errors?.['required']" [ngClass]="'error'">
+            First name is required
+        </div>
+
+        <div *ngIf="registerFormGroup.controls['firstName'].errors?.['minlength']" [ngClass]="'error'">
+            First name must be at least 5 characters long
+        </div>
+    </ng-container>
+
+    <div>
+        <label for="lastName">Last name</label>
+        <input type="text" id="lastName" formControlName="lastName" />
+    </div>
+    <ng-container
+        *ngIf="registerFormGroup.controls['lastName'].touched && registerFormGroup.controls['lastName'].invalid">
+        <div *ngIf="registerFormGroup.controls['lastName'].errors?.['required']" [ngClass]="'error'">
+            Last name is required
+        </div>
+
+        <div *ngIf="registerFormGroup.controls['lastName'].errors?.['maxlength']" [ngClass]="'error'">
+            Last name must less than 20 characters long
+        </div>
+    </ng-container>
+
+    <div>
+        <label for="username">Username</label>
+        <input type="text" id="username" formControlName="username" />
+    </div>
+    <ng-container
+        *ngIf="registerFormGroup.controls['username'].touched && registerFormGroup.controls['username'].invalid">
+        <div *ngIf="registerFormGroup.controls['username'].errors?.['custom']" [ngClass]="'error'">
+            Value must be TEST
+        </div>
+    </ng-container>
+
+
+    <div formGroupName="passwords">
+        <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" formControlName="password" />
+        </div>
+        <ng-container
+            *ngIf="registerFormGroup.controls['password'].touched && registerFormGroup.controls['password'].invalid">
+            <div *ngIf="registerFormGroup.controls['password'].errors?.['exclamationMark']" [ngClass]="'error'">
+                Password cannot contain special characters
+            </div>
+        </ng-container>
+
+        <div>
+            <label for="repass">Repeat password</label>
+            <input type="password" id="repass" formControlName="repass" />
+        </div>
+        <ng-container
+            *ngIf="registerFormGroup.controls['repass'].touched && registerFormGroup.controls['repass'].invalid">
+            <div *ngIf="registerFormGroup.controls['repass'].errors?.['exclamationMark']" [ngClass]="'error'">
+                Password cannot contain special characters
+            </div>
+        </ng-container>
+    </div>
+
+
+    <input type="submit" value="Register" [ngClass]="'submit-btn'" />
+</form>

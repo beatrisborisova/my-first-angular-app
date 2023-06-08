@@ -1,0 +1,26 @@
+<div>
+    <h2>About page</h2>
+    <p>Custom component</p>
+
+    <div>
+
+        <div [ngClass]="'users-container'">
+            <ng-container *ngFor="let number of numbers">
+                <app-button [number]="number" (id)="handlePassId($event)"></app-button>
+            </ng-container>
+            <button (click)="hideUser()" [ngClass]="'num-btn'">Hide user</button>
+
+            <div *ngIf="user">
+                <p>ID: {{user.id}}</p>
+                <p>Name: {{user.name}}</p>
+                <p>Email: {{user.email}}</p>
+            </div>
+        </div>
+
+
+    </div>
+
+    <ng-container *ngIf="loading">
+        <p>Loading...</p>
+    </ng-container>
+</div>

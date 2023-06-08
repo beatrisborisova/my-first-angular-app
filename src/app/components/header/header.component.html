@@ -1,0 +1,74 @@
+<header>
+    <!-- Attribute directives -->
+    <section [ngClass]="'header-section'">
+        <article [ngClass]="'image-article'">
+            <div [ngClass]="'image-wrapper'">
+                <img src="https://www.akc.org/wp-content/uploads/2021/07/Cavalier-King-Charles-Spaniel-laying-down-indoors.jpeg"
+                    alt="dog" />
+            </div>
+        </article>
+        <article [ngClass]="['text-article', 'second-class']">
+            <h1 [ngStyle]="{'text-transform': 'uppercase'}">Welcome to our Angular app</h1>
+        </article>
+    </section>
+
+    <section [ngClass]="'directives-container'">
+        <!-- Strurctural directives -->
+
+        <h2>Strurctural directives</h2>
+        <div [ngClass]="'directive-container'">
+            <h3>*ngIf</h3>
+            <section>
+                <ng-container *ngIf="hasUser">
+                    <p>Has user</p>
+                    <p>This is a section when user is logged in</p>
+                </ng-container>
+
+                <ng-container *ngIf="!hasUser">
+                    <p>Has not user</p>
+                    <p>This is a section when user is not logged in</p>
+                </ng-container>
+            </section>
+        </div>
+
+        <div [ngClass]="'directive-container'">
+            <h3>*ngFor</h3>
+            <section [ngClass]="'movies-section'" appCustom [isActive]="toggleBtn">
+                <div *ngFor="let movie of movies" [ngClass]="'movie-item'">
+                    <h3>Movie</h3>
+                    <p>{{movie}}</p>
+                </div>
+            </section>
+            <button (click)="toggleBgChange()">Change</button>
+            <button (click)="toggleBtnFunc($event)">Event</button>
+
+            <!-- Event Binding -->
+            <div [ngClass]="'template-vars'">
+                <!-- Template variable -->
+                <input type="text" #myInput />
+                <p>{{text}}</p>
+                <button (click)="changeText(myInput.value)">Add</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interpolation -->
+    <p>{{hello}}</p>
+
+    <!-- Property attribute -->
+    <div [ngClass]="'image-wrapper'">
+        <img [src]="dogImgSrc" [alt]="dogImgAlt" />
+        <p [ngClass]="{'testClass' : testClassAttr}">Test</p>
+    </div>
+
+    <!-- Data from parent // @Input decorator -->
+    <div *ngFor="let photo of photos">
+        <p>{{photo}}</p>
+    </div>
+
+    <button (click)="addPhoto('Photo5')">Add photo</button>
+
+
+    <!-- <p>{{test}}</p> -->
+
+</header>

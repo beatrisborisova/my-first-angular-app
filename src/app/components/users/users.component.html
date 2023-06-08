@@ -1,0 +1,6 @@
+<div *ngIf="users.length > 0" [ngClass]="'users-container'">
+    Users:
+    <ng-container *ngFor="let user of users">
+        <app-user [user]="user"></app-user>
+    </ng-container>
+</div>

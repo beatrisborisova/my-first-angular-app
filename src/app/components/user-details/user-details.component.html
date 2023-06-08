@@ -1,0 +1,11 @@
+<div>
+    <h1>User details</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, at!</p>
+
+    <h3>ID: {{id}}</h3>
+    <ng-container *ngIf="userData">
+        <p>Name: {{userData['name']}}</p>
+        <p>Username: {{userData['username']}}</p>
+        <p>Email: {{userData['email']}}</p>
+    </ng-container>
+</div>
